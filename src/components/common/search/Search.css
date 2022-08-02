@@ -1,0 +1,40 @@
+.search-bar {
+    background-color: rgb(205, 200, 200);
+    position: fixed;
+    top: 55px;
+    left: 0;
+    right: 0;
+    padding: 10px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.search-wrapper {
+    flex: 1;
+    max-width: 240px;
+    position: relative;
+}
+
+.search-input {
+    border-radius: 7px;
+    border: none;
+    padding: 0px 10px;
+    height: 30px;
+    width: 100%;
+}
+
+.search-submit {
+    background-color: #fff;
+    border: none;
+    border-radius: 7px;
+    height: 30px;
+    position: absolute;
+    right:-18px;
+}
+
+.search-img {
+    height: 20px;
+
+}
+
+.search-input input {}
