@@ -13,15 +13,15 @@ function App() {
         <Header />
         <Search />
       </header>
-      <div className='main'>
 
+      <div className='main'>
         <Routes>
-          
           <Route exact path='/register' element={<Register />}></Route>
           <Route exact path='/login' element={<Login />}></Route>
         </Routes>
 
       </div>
+
       <Footer />
     </div>
   );

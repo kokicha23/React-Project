@@ -1,17 +1,19 @@
 body {
     margin: 0;
-    padding: 0;
-
+    /* 55px 50px */
 }
 
 .main {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    margin-top: 75px;
     background-image: url("./main-background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-
+    align-items: center;
+    position: fixed;
+    top: 105px;
+    bottom: 30px;
+    left: 0;
+    right: 0;
 }
-
-.blur {}
