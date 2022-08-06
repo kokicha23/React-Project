@@ -9,12 +9,20 @@ export const Login = () => {
             </div>
 
             <div className="login-form-wrapper">
-                <p>Member Login</p>
+                <p className="member-login">Member Login</p>
                 <form className="login-form">
-                    <input type="email" name="email" placeholder="Email"></input>
-                    <input type="any" name="password" placeholder="Password"></input>
-                    <button type="submit">Login</button>
-                    <p>Don`t have an account? <Link to="/register">Register here</Link></p>
+
+                    <div className="login-inputs-wrapper">
+                        <input className="email-input general-input" type="email" name="email" placeholder="Email"></input>
+                        <input className="password-input general-input" type="any" name="password" placeholder="Password"></input>
+                        <button className="login-btn" type="submit">Login</button>
+                    </div>
+
+                    <div className="router-to-register">
+                        <p>Don`t have an account?</p>
+                        <Link to="/register">Register here</Link>
+                    </div>
+
                 </form>
             </div>
         </div>
