@@ -13,9 +13,12 @@ function App() {
         <Search />
       </header>
       <div className='main'>
-        <Login />
-      </div>
-      <div className='blur'>
+
+        <Routes>
+          
+          
+          <Route exact path='/login' element={<Login />}></Route>
+        </Routes>
 
       </div>
       <Footer />

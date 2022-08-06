@@ -24,7 +24,7 @@ export const Header = () => {
             </div>
 
             <div className="second-part-of-navigation">
-                <Link className="about" to="/about">Login</Link>
+                <Link className="login" to="/login">Login</Link>
                 <Link className="catalog" to="/register">Register</Link>
                 <Link className="location" to="/logout">Logout</Link>
                 <Link className="location checkout" to="/logout">Checkout</Link>
