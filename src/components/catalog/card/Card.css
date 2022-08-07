@@ -14,7 +14,8 @@
     width: 100%;
     height: 40%;
     background-size: contain;
-    border-radius: 20px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
 }
 
 .plant-name-card {
@@ -29,7 +30,8 @@
     height: 30%;
     background-color: #96ed92;
     align-items: center;
-    border-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
 .details-edit-buttons-wrapper .edit-details {
