@@ -1,0 +1,49 @@
+.cardWrapper {
+    border: none;
+    border-radius: 10px;
+    width: 220px;
+    height: 340px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    align-items: center;
+}
+
+.cardWrapper img {
+    width: 100%;
+    height: 40%;
+    background-size: contain;
+}
+
+.plant-name-card {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.details-edit-buttons-wrapper {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 30%;
+    background-color: #96ed92;
+    align-items: center;
+}
+
+.details-edit-buttons-wrapper .edit-details {
+    height: 40%;
+    width: 80px;
+    background-color: rgb(9, 197, 12);
+    border: none;
+    border-radius: 10px;
+    transition: opacity 0.1s;
+
+}
+
+.details-edit-buttons-wrapper .edit-details:hover {
+    opacity: 0.7;
+}
+
+.details-edit-buttons-wrapper .edit-details a {
+    text-decoration: none;
+    color: white;
+}

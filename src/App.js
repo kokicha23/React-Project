@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom"
 import { Register } from './components/register/Register';
 import "./App.css"
 import { Create } from './components/create/Create';
+import { Catalog } from './components/catalog/Catalog';
 function App() {
   return (
     <div className="App">
@@ -20,6 +21,7 @@ function App() {
           <Route exact path='/register' element={<Register />}></Route>
           <Route exact path='/login' element={<Login />}></Route>
           <Route exact path='/create' element={<Create />}></Route>
+          <Route exact path='/catalog' element={<Catalog />}></Route>
         </Routes>
 
       </div>
