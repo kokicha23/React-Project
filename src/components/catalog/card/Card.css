@@ -1,18 +1,20 @@
 .cardWrapper {
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     width: 220px;
     height: 340px;
     display: flex;
     flex-direction: column;
     background-color: #fefefe;
     align-items: center;
+    margin-right: 25px;
 }
 
 .cardWrapper img {
     width: 100%;
     height: 40%;
     background-size: contain;
+    border-radius: 20px;
 }
 
 .plant-name-card {
@@ -27,6 +29,7 @@
     height: 30%;
     background-color: #96ed92;
     align-items: center;
+    border-radius: 20px;
 }
 
 .details-edit-buttons-wrapper .edit-details {
