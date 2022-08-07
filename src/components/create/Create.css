@@ -1,4 +1,4 @@
-.container-register {
+.container-create {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -7,7 +7,18 @@
     height: 350px;
 }
 
-.register-btn {
+.create-form-wrapper {
+    margin-bottom: 30px;
+}
+
+.create-inputs-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    width: 250px;
+}
+
+.create-btn {
     width: 70%;
     border: none;
     border-radius: 10px;
@@ -15,8 +26,9 @@
     background-color: #14c90b;
     cursor: pointer;
     padding: 10px;
+    margin-left: 33px;
+    margin-top: 20px;
     transition: opacity 0.1s;
-    margin-top: 10px;
 }
 
 .register-btn:hover {

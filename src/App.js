@@ -6,6 +6,7 @@ import { Login } from './components/login/Login';
 import { Routes, Route } from "react-router-dom"
 import { Register } from './components/register/Register';
 import "./App.css"
+import { Create } from './components/create/Create';
 function App() {
   return (
     <div className="App">
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route exact path='/register' element={<Register />}></Route>
           <Route exact path='/login' element={<Login />}></Route>
+          <Route exact path='/create' element={<Create />}></Route>
         </Routes>
 
       </div>

@@ -16,7 +16,7 @@ export const Register = () => {
                   <input className="email-input general-input" type="email" name="email" placeholder="Email"></input>
                   <input className="register-password-input general-input" type="any" name="password" placeholder="Password"></input>
                   <input className="repeat-password-input general-input" type="any" name="repeat-password" placeholder="Repeat Password"></input>
-                  <button className="login-btn" type="submit">Register</button>
+                  <button className="register-btn" type="submit">Register</button>
                </div>
 
                <div className="router-to-register">

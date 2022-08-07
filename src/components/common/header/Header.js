@@ -19,6 +19,7 @@ export const Header = () => {
                     <Link className="about" to="/about">About</Link>
                     <Link className="catalog" to="/catalog">Catalog</Link>
                     <Link className="location" to="/location">Location</Link>
+                    <Link className="create" to="/create">Post a plant</Link>
                 </div>
 
             </div>
