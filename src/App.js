@@ -8,6 +8,8 @@ import { Register } from './components/register/Register';
 import "./App.css"
 import { Create } from './components/create/Create';
 import { Catalog } from './components/catalog/Catalog';
+import { WelcomePage } from './components/welcomePage/WelcomePage';
+import { About } from './components/about/About';
 function App() {
   return (
     <div className="App">
@@ -18,6 +20,8 @@ function App() {
 
       <div className='main'>
         <Routes>
+          <Route exact path='/about' element={<About />}></Route>
+          <Route exact path='/welcomePage' element={<WelcomePage />}></Route>
           <Route exact path='/register' element={<Register />}></Route>
           <Route exact path='/login' element={<Login />}></Route>
           <Route exact path='/create' element={<Create />}></Route>

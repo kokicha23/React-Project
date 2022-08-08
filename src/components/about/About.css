@@ -1,0 +1,18 @@
+.about-page-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: aliceblue;
+    width: 450px;
+    height: 300px;
+    border-radius: 50px;
+    font-size: 18px;
+    box-shadow: 0px 10px 10px rgb(148, 59, 231);
+
+}
+
+.about-text {
+    text-align: center;
+    color: blueviolet;
+
+}

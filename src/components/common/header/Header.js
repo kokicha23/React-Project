@@ -16,9 +16,9 @@ export const Header = () => {
                 </div>
 
                 <div className="about-catalog-location">
+                    <Link className="welcomePage" to="/welcomePage">Home</Link>
                     <Link className="about" to="/about">About</Link>
                     <Link className="catalog" to="/catalog">Catalog</Link>
-                    <Link className="location" to="/location">Location</Link>
                     <Link className="create" to="/create">Post a plant</Link>
                 </div>
 
@@ -28,7 +28,6 @@ export const Header = () => {
                 <Link className="login" to="/login">Login</Link>
                 <Link className="catalog" to="/register">Register</Link>
                 <Link className="location" to="/logout">Logout</Link>
-                <Link className="location checkout" to="/logout">Checkout</Link>
             </div>
 
         </header>
