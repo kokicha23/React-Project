@@ -5,6 +5,7 @@
     background-color: #96ed92;
     width: 450px;
     height: 350px;
+    border-radius: 50px;
 }
 
 .create-form-wrapper {
@@ -16,6 +17,7 @@
     flex-direction: column;
     height: 250px;
     width: 250px;
+
 }
 
 .create-btn {

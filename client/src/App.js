@@ -1,4 +1,5 @@
 import './App.css';
+import React, { useState, useEffect } from 'react';
 import { Footer } from './components/common/footer/Footer';
 import { Header } from './components/common/header/Header';
 import { Search } from './components/common/search/Search';
@@ -11,8 +12,15 @@ import { Catalog } from './components/catalog/Catalog';
 import { WelcomePage } from './components/welcomePage/WelcomePage';
 import { About } from './components/about/About';
 function App() {
+  const [spinner, setSpinner] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => setSpinner(false), 2000)
+  }, []);
+
   return (
-    <div className="App">
+
+    !spinner && <div className="App">
       <header>
         <Header />
         <Search />
@@ -20,7 +28,7 @@ function App() {
 
       <div className='main'>
         <Routes>
-          <Route exact path='/about' element={<About />}></Route>
+          <Route exact path='/about' element={spinner ? <p>Loading...</p> : <About />}></Route>
           <Route exact path='/welcomePage' element={<WelcomePage />}></Route>
           <Route exact path='/register' element={<Register />}></Route>
           <Route exact path='/login' element={<Login />}></Route>
@@ -36,3 +44,4 @@ function App() {
 }
 
 export default App;
+
