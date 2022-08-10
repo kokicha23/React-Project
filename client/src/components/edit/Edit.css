@@ -1,0 +1,49 @@
+.container-edit {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #96ed92;
+    width: 450px;
+    height: 400px;
+    border-radius: 50px;
+}
+
+.edit-plant-label {
+    color: grey;
+    margin-left: 15px;
+}
+
+.edit-plant {
+    margin-top: 0;
+    text-align: center;
+
+}
+
+.edit-form-wrapper {
+    margin-bottom: 80px;
+}
+
+.edit-inputs-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    width: 250px;
+
+}
+
+.edit-btn {
+    width: 70%;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: #14c90b;
+    cursor: pointer;
+    padding: 10px;
+    margin-left: 33px;
+    margin-top: 5px;
+    transition: opacity 0.1s;
+}
+
+.register-btn:hover {
+    opacity: 0.7;
+}

@@ -7,12 +7,12 @@
     height: 300px;
     border-radius: 50px;
     font-size: 18px;
-    box-shadow: 0px 10px 10px rgb(148, 59, 231);
+    box-shadow: 0px 10px 10px #96ed92;
 
 }
 
 .about-text {
     text-align: center;
-    color: blueviolet;
+    color: #758407;
 
 }

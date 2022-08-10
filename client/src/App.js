@@ -11,35 +11,38 @@ import { Create } from './components/create/Create';
 import { Catalog } from './components/catalog/Catalog';
 import { WelcomePage } from './components/welcomePage/WelcomePage';
 import { About } from './components/about/About';
-function App() {
-  const [spinner, setSpinner] = useState(true);
+import { AuthProvider } from './context/authContext';
+import { reducerAuthFunction } from './context/reducer/authReducer';
+import { initialAuthState } from './context/reducer/authInitialState'
+import { Details } from './components/details/Details';
+import { Edit } from './components/edit/Edit';
 
-  useEffect(() => {
-    setTimeout(() => setSpinner(false), 2000)
-  }, []);
+function App() {
 
   return (
+    <AuthProvider initialState={initialAuthState} reducer={reducerAuthFunction}>
+      <div className="App">
+        <header>
+          <Header />
+          <Search />
+        </header>
 
-    !spinner && <div className="App">
-      <header>
-        <Header />
-        <Search />
-      </header>
+        <div className='main'>
+          <Routes>
+            <Route exact path='/about' element={<About />}></Route>
+            <Route exact path='/' element={<WelcomePage />}></Route>
+            <Route exact path='/register' element={<Register />}></Route>
+            <Route exact path='/login' element={<Login />}></Route>
+            <Route exact path='/create' element={<Create />}></Route>
+            <Route exact path='/catalog' element={<Catalog />}></Route>
+            <Route exact path='catalog/details/:id' element={<Details />}></Route>
+            <Route exact path='catalog/edit/:id' element={<Edit />}></Route>
+          </Routes>
+        </div>
 
-      <div className='main'>
-        <Routes>
-          <Route exact path='/about' element={spinner ? <p>Loading...</p> : <About />}></Route>
-          <Route exact path='/welcomePage' element={<WelcomePage />}></Route>
-          <Route exact path='/register' element={<Register />}></Route>
-          <Route exact path='/login' element={<Login />}></Route>
-          <Route exact path='/create' element={<Create />}></Route>
-          <Route exact path='/catalog' element={<Catalog />}></Route>
-        </Routes>
-
+        <Footer />
       </div>
-
-      <Footer />
-    </div>
+    </AuthProvider>
   );
 }
 

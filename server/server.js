@@ -1,10 +1,11 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('http'), require('fs'), require('crypto')) :
-    typeof define === 'function' && define.amd ? define(['http', 'fs', 'crypto'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Server = factory(global.http, global.fs, global.crypto));
-}(this, (function (http, fs, crypto) { 'use strict';
+        typeof define === 'function' && define.amd ? define(['http', 'fs', 'crypto'], factory) :
+            (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Server = factory(global.http, global.fs, global.crypto));
+}(this, (function (http, fs, crypto) {
+    'use strict';
 
-    function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+    function _interopDefaultLegacy(e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
     var http__default = /*#__PURE__*/_interopDefaultLegacy(http);
     var fs__default = /*#__PURE__*/_interopDefaultLegacy(fs);
@@ -13,14 +14,14 @@
     class ServiceError extends Error {
         constructor(message = 'Service Error') {
             super(message);
-            this.name = 'ServiceError'; 
+            this.name = 'ServiceError';
         }
     }
 
     class NotFoundError extends ServiceError {
         constructor(message = 'Resource not found') {
             super(message);
-            this.name = 'NotFoundError'; 
+            this.name = 'NotFoundError';
             this.status = 404;
         }
     }
@@ -28,7 +29,7 @@
     class RequestError extends ServiceError {
         constructor(message = 'Request error') {
             super(message);
-            this.name = 'RequestError'; 
+            this.name = 'RequestError';
             this.status = 400;
         }
     }
@@ -36,7 +37,7 @@
     class ConflictError extends ServiceError {
         constructor(message = 'Resource conflict') {
             super(message);
-            this.name = 'ConflictError'; 
+            this.name = 'ConflictError';
             this.status = 409;
         }
     }
@@ -44,7 +45,7 @@
     class AuthorizationError extends ServiceError {
         constructor(message = 'Unauthorized') {
             super(message);
-            this.name = 'AuthorizationError'; 
+            this.name = 'AuthorizationError';
             this.status = 401;
         }
     }
@@ -52,7 +53,7 @@
     class CredentialError extends ServiceError {
         constructor(message = 'Forbidden') {
             super(message);
-            this.name = 'CredentialError'; 
+            this.name = 'CredentialError';
             this.status = 403;
         }
     }
@@ -556,8 +557,8 @@
             if (query.pageSize) {
                 responseData = responseData.slice(0, pageSize);
             }
-    		
-    		if (query.distinct) {
+
+            if (query.distinct) {
                 const props = query.distinct.split(',').filter(p => p != '');
                 responseData = Object.values(responseData.reduce((distinct, c) => {
                     const key = props.map(p => c[p]).join('::');
@@ -793,7 +794,7 @@
     }
 
     function onRequest(context, tokens, query, body) {
-        Object.entries(body).forEach(([k,v]) => {
+        Object.entries(body).forEach(([k, v]) => {
             console.log(`${k} ${v ? 'enabled' : 'disabled'}`);
             context.util[k] = v;
         });
@@ -931,7 +932,7 @@
          * @param {Object} data Value to store. Shallow merge will be performed!
          * @return {Object} Updated entry.
          */
-         function merge(collection, id, data) {
+        function merge(collection, id, data) {
             if (!collections.has(collection)) {
                 throw new ReferenceError('Collection does not exist: ' + collection);
             }
@@ -1318,68 +1319,67 @@
 
     var identity = "username";
     var protectedData = {
-    	users: {
-    		"35c62d76-8152-4626-8712-eeb96381bea8": {
-    			username: "Peter",
-    			hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
-    		},
-    		"847ec027-f659-4086-8032-5173e2f9c93a": {
-    			username: "John",
-    			hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
-    		}
-    	},
-    	sessions: {
-    	}
+        users: {
+            "35c62d76-8152-4626-8712-eeb96381bea8": {
+                username: "Peter",
+                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
+            },
+            "847ec027-f659-4086-8032-5173e2f9c93a": {
+                username: "John",
+                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
+            }
+        },
+        sessions: {
+        }
     };
     var seedData = {
-    	cars: {
-    		"3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
+        plants: {
+            "3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-                "brand": "Audi",
-                "model": "A3",
+                "name": "Ligustrum",
                 "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-                "year": 2018,
-                "imageUrl": "/images/audia3.jpg",
-                "price": 25000,
-                "_createdOn": 1616162253496
+                "price": 2,
+                "imageUrl": "/images/ligustrum.jpg",
+                "_createdOn": 1616162253496,
+                "_id": "3987279d-0ad4-4afb-8ca9-5b256ae3b298"
             },
             "8f414b4f-ab39-4d36-bedb-2ad69da9c830": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "brand": "Mercedes",
-                "model": "A-class",
+                "name": "Albizia Julibrissin",
                 "description": "Voluptate expedita odio tempore aliquam rem neque sunt dignissimos ratione nulla quod dolore dolor animi cupiditate, labore ad maiores?",
-                "year": 2016,
-                "imageUrl": "/images/benz.jpg",
-                "price": 27000,
-                "_createdOn": 1616162253496
+                "imageUrl": "/images/albiziaJulibrissin.jpg",
+                "price": 0.60,
+                "_createdOn": 1616162253496,
+                "_id": "8f414b4f-ab39-4d36-bedb-2ad69da9c830"
             },
-            "3a432947-3e43-42a8-bcbc-100d2b199892": {
+
+            "8f414b4f-ab39-4d36-bedb-2ad69da9c830": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "brand": "BMW",
-                "model": "3 Series",
-                "description": "Quisquam modi vitae explicabo fugit delectus voluptate fuga nisi quo impedit temporibus est magni optio, at, natus odit maxime vero corporis unde sequi? Minima atque, laborum impedit deserunt sequi assumenda laudantium vitae corporis?",
-                "year": 2016,
-                "imageUrl": "/images/bmw.jpg",
-                "price": 22000,
-                "_createdOn": 1616162253496
-            }
-    	}
+                "name": "Passion Flower",
+                "description": "Voluptate expedita odio tempore aliquam rem neque sunt dignissimos ratione nulla quod dolore dolor animi cupiditate, labore ad maiores?",
+                "imageUrl": "/images/passionFlower.jpg",
+                "price": 1,
+                "_createdOn": 1616162253496,
+                "_id": "8f414b4f-ab39-4d36-bedb-2ad69da9c830"
+            },
+
+        }
     };
     var rules$1 = {
-    	users: {
-    		".create": false,
-    		".read": [
-    			"Owner"
-    		],
-    		".update": false,
-    		".delete": false
-    	}
+        users: {
+            ".create": false,
+            ".read": [
+                "Owner"
+            ],
+            ".update": false,
+            ".delete": false
+        }
     };
     var settings = {
-    	identity: identity,
-    	protectedData: protectedData,
-    	seedData: seedData,
-    	rules: rules$1
+        identity: identity,
+        protectedData: protectedData,
+        seedData: seedData,
+        rules: rules$1
     };
 
     const plugins = [

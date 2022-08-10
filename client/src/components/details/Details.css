@@ -1,0 +1,62 @@
+.details-wrapper {
+    display: flex;
+    background-color: #96ed92;
+    justify-content: space-evenly;
+}
+
+
+.detail-img {
+    width: 300px;
+    height: 300px;
+}
+
+.description-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.plant-description-description {
+    width: 200px;
+    color: grey;
+    margin-top: 0;
+}
+
+.delete-edit-buttons-wrapper {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.plant-name-description {
+    margin-top: 0;
+    color: grey;
+}
+
+.edit-btn {
+    width: 70px;
+    color: rgb(65, 63, 63);
+    background-color: rgb(59, 183, 14);
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.delete-btn {
+    width: 70px;
+    color: rgb(23, 21, 21);
+    background-color: rgb(220, 72, 8);
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.plant-label {
+    margin-bottom: 4px;
+}
+
+.details-label {
+    margin-bottom: 4px;
+}

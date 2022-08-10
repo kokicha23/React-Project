@@ -9,16 +9,16 @@
     height: 300px;
     border-radius: 50px;
     font-size: 18px;
-    box-shadow: 0px 10px 10px rgb(148, 59, 231);
+    box-shadow: 0px 10px 10px #96ed92;
 }
 
 .welcome-text {
-    color: blueviolet;
+    color: #758407;
     font-size: 22px;
     margin-bottom: 0;
 }
 
 .wishes {
     margin-bottom: 80px;
-    color: rgb(126, 25, 222);
+    color: #758407;
 }
