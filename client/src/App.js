@@ -14,6 +14,7 @@ import { About } from './components/about/About';
 import { AuthProvider } from './context/authContext';
 import { Details } from './components/details/Details';
 import { Edit } from './components/edit/Edit';
+import { Profile } from './components/profile/Profile';
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
             <Route path='/catalog' element={<Catalog />}></Route>
             <Route path='catalog/details/:id' element={<Details />}></Route>
             <Route path='catalog/edit/:id' element={<Edit />}></Route>
+            <Route path='/profile' element={<Profile />}></Route>
           </Routes>
         </div>
 

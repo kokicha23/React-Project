@@ -17,9 +17,13 @@ export const Register = () => {
 
       const {
          email,
-         password
+         password,
+         repeatPassword
       } = Object.fromEntries(new FormData(e.target))
-
+      if (!email || !password || !repeatPassword) { alert('All fields must be filled!'); return; };
+      if (password !== repeatPassword) {
+         alert('Passwords should match!'); return;
+      }
       register(email, password)
          .then(authData => {
             loginUser(authData.accessToken, authData.email, authData._id)
@@ -41,8 +45,8 @@ export const Register = () => {
 
                <div className="login-inputs-wrapper">
                   <input className="email-input general-input" type="email" name="email" placeholder="Email"></input>
-                  <input className="register-password-input general-input" type="any" name="password" placeholder="Password"></input>
-                  <input className="repeat-password-input general-input" type="any" name="repeat-password" placeholder="Repeat Password"></input>
+                  <input className="register-password-input general-input" type="password" name="password" placeholder="Password"></input>
+                  <input className="repeat-password-input general-input" type="password" name="repeatPassword" placeholder="Repeat Password"></input>
                   <button className="register-btn" type="submit">Register</button>
                </div>
 

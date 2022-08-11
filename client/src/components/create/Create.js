@@ -8,6 +8,16 @@ export const Create = () => {
     const submitHandler = (e) => {
 
         e.preventDefault()
+
+        const {
+            name,
+            imageUrl,
+            price,
+            description
+        } = Object.fromEntries(new FormData(e.target))
+
+
+        if (!name || !imageUrl || !price || !description) { alert('All fields must be filled!'); return; };
         postPlant(Object.fromEntries(new FormData(e.target)))
             .then(navigate("/catalog"))
 

@@ -19,6 +19,8 @@ export const Login = () => {
             password
         } = Object.fromEntries(new FormData(e.target))
 
+        if (!email || !password) { alert('All fields must be filled!'); return; };
+
         login(email, password)
             .then(authData => {
                 loginUser(authData.accessToken, authData.email, authData._id)
@@ -41,7 +43,7 @@ export const Login = () => {
 
                     <div className="login-inputs-wrapper">
                         <input className="email-input general-input" type="email" name="email" placeholder="Email"></input>
-                        <input className="password-input general-input" type="any" name="password" placeholder="Password"></input>
+                        <input className="password-input general-input" type="password" name="password" placeholder="Password"></input>
                         <button className="login-btn" type="submit">Login</button>
                     </div>
 

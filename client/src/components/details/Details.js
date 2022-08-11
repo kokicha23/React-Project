@@ -11,26 +11,20 @@ export const Details = () => {
     const [data, setData] = useState([])
     const navigate = useNavigate()
     const { isAuthenticated, user } = useAuthContext();
-
-
+    
     useEffect(() => {
         getOneDetails(location.pathname.split("/")[3])
             .then((plant) => setData(plant))
     }, [])
 
-
     const deleteHandler = (e) => {
 
-        deletePlant(location.pathname.split("/")[3])
-            .then(navigate("/catalog"))
-
-        // if (alert("Are you sure that you want to delete that plant?") === true) {
-
-        // }
+        if (window.confirm("Are you sure that you want to delete it?")) {
+            deletePlant(location.pathname.split("/")[3])
+                .then(() => navigate("/catalog"))
+        }
 
     }
-
-
 
     return (
         <div className="details-wrapper">
@@ -45,7 +39,7 @@ export const Details = () => {
                 {
                     isAuthenticated && user._id === data._ownerId &&
                     <div className="delete-edit-buttons-wrapper">
-                        <Link className="edit-btn-details" to={`edit/${data._id}`}>Edit</Link>
+                        {/* <Link className="edit-btn-details" to={`edit/${data._id}`}>Edit</Link> */}
                         <button type="button" onClick={deleteHandler} className="delete-btn">Delete</button>
                     </div>
                 }

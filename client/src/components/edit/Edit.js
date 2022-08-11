@@ -16,6 +16,16 @@ export const Edit = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
+        const {
+            name,
+            imageUrl,
+            price,
+            description
+        } = Object.fromEntries(new FormData(e.target))
+
+
+        if (!name || !imageUrl || !price || !description) { alert('All fields must be filled!'); return; };
+
         editPlant(Object.fromEntries(new FormData(e.target)), location.pathname.split("/")[3])
             .then(navigate("/catalog"))
     }
