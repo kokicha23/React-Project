@@ -1,4 +1,5 @@
 export const initialAuthState = {
     email: "",
-    _id: ""
+    _id: "",
+    accessToken: ""
 }

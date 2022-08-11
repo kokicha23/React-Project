@@ -1,17 +1,36 @@
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
-import * as plantService from "../../service/plantsService"
+
 import "./Details.css"
+import { useAuthContext } from "../../context/authContext"
+import { deletePlant, getOneDetails } from "../../service/plantsService"
+
 
 export const Details = () => {
     const location = useLocation();
     const [data, setData] = useState([])
-    console.log(location.pathname.split("/")[3])
+    const navigate = useNavigate()
+    const { isAuthenticated, user } = useAuthContext();
+
+
     useEffect(() => {
-        plantService
-            .getOneDetails(location.pathname.split("/")[3])
+        getOneDetails(location.pathname.split("/")[3])
             .then((plant) => setData(plant))
     }, [])
+
+
+    const deleteHandler = (e) => {
+
+        deletePlant(location.pathname.split("/")[3])
+            .then(navigate("/catalog"))
+
+        // if (alert("Are you sure that you want to delete that plant?") === true) {
+
+        // }
+
+    }
+
+
 
     return (
         <div className="details-wrapper">
@@ -23,10 +42,14 @@ export const Details = () => {
                 <p className="details-label">Details:</p>
                 <p className="plant-description-description">{data.description}</p>
 
-                <div className="delete-edit-buttons-wrapper">
-                    <Link className="edit-btn" to={`edit/${data._id}`}>Edit</Link>
-                    <buttons className="delete-btn">Delete</buttons>
-                </div>
+                {
+                    isAuthenticated && user._id === data._ownerId &&
+                    <div className="delete-edit-buttons-wrapper">
+                        <Link className="edit-btn-details" to={`edit/${data._id}`}>Edit</Link>
+                        <button type="button" onClick={deleteHandler} className="delete-btn">Delete</button>
+                    </div>
+                }
+
             </div>
 
         </div >

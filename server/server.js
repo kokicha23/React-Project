@@ -1317,16 +1317,23 @@
 
     var rules = initPlugin$3;
 
-    var identity = "username";
+    var identity = "email";
     var protectedData = {
         users: {
             "35c62d76-8152-4626-8712-eeb96381bea8": {
+                email: "peter@abv.bg",
                 username: "Peter",
                 hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
             },
             "847ec027-f659-4086-8032-5173e2f9c93a": {
-                username: "John",
+                email: "george@abv.bg",
+                username: "George",
                 hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
+            },
+            "60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
+                email: "admin@abv.bg",
+                username: "Admin",
+                hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
             }
         },
         sessions: {
@@ -1353,14 +1360,14 @@
                 "_id": "8f414b4f-ab39-4d36-bedb-2ad69da9c830"
             },
 
-            "8f414b4f-ab39-4d36-bedb-2ad69da9c830": {
+            "8f414b4f-ab39-4d36-bedb-2ad69da9c840": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "name": "Passion Flower",
                 "description": "Voluptate expedita odio tempore aliquam rem neque sunt dignissimos ratione nulla quod dolore dolor animi cupiditate, labore ad maiores?",
                 "imageUrl": "/images/passionFlower.jpg",
                 "price": 1,
                 "_createdOn": 1616162253496,
-                "_id": "8f414b4f-ab39-4d36-bedb-2ad69da9c830"
+                "_id": "8f414b4f-ab39-4d36-bedb-2ad69da9c840"
             },
 
         }
@@ -1373,6 +1380,18 @@
             ],
             ".update": false,
             ".delete": false
+        },
+        members: {
+            ".update": "isOwner(user, get('teams', data.teamId))",
+            ".delete": "isOwner(user, get('teams', data.teamId)) || isOwner(user, data)",
+            "*": {
+                teamId: {
+                    ".update": "newData.teamId = data.teamId"
+                },
+                status: {
+                    ".create": "newData.status = 'pending'"
+                }
+            }
         }
     };
     var settings = {

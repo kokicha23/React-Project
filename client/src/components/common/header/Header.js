@@ -1,8 +1,23 @@
 import logo from "./logo.webp"
 import "./Header.css"
 import { Link } from "react-router-dom"
+import { logout } from "../../../service/authService"
+import { useLocalStorage } from "../../../hooks/useLocalStorage"
+import { initialAuthState } from "../../../context/reducer/authInitialState"
+import { useAuthContext } from "../../../context/authContext"
 
 export const Header = () => {
+
+
+
+    const { logoutUser, user, isAuthenticated } = useAuthContext()
+
+    const logoutHandler = () => {
+        logout()
+            .then(data => logoutUser())
+
+    }
+
     return (
         <header className="navigation">
 
@@ -19,22 +34,33 @@ export const Header = () => {
                     <Link className="welcomePage" to="/">Home</Link>
                     <Link className="about" to="/about">About</Link>
                     <Link className="catalog" to="/catalog">Catalog</Link>
-                    {/* if there is a user */}
-                    <Link className="create" to="/create">Post a plant</Link>
+                    {isAuthenticated && <Link className="create" to="/create">Post a plant</Link>}
+
+
                 </div>
 
             </div>
 
             <div className="second-part-of-navigation">
-                <span className="email-span">email@abv.bg</span>
-                <Link className="login" to="/login">Login</Link>
-                <Link className="catalog" to="/register">Register</Link>
 
-                <Link className="profile" to="/profile">Profile</Link>
-                <Link className="location" to="/logout">Logout</Link>
+
+                {user && <span className="email-span">{user.email}</span>}
+
+
+                {!isAuthenticated ?
+                    <>
+                        <Link className="login" to="/login">Login</Link>
+                        <Link className="catalog" to="/register">Register</Link>
+                    </>
+                    :
+                    <>
+                        <Link className="profile" to="/profile">Profile</Link>
+                        <Link className="location" onClick={logoutHandler} to="/">Logout</Link>
+                    </>
+                }
             </div>
 
-        </header>
+        </header >
 
     )
 }

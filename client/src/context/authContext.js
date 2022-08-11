@@ -1,19 +1,29 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext } from 'react';
+import { useLocalStorage } from '../hooks/useLocalStorage';
+import { initialAuthState } from './reducer/authInitialState';
 
+const AuthContext = createContext();
+const baseUrl = 'http://localhost:3030/users';
 
-export const AuthContext = createContext(null);
+export const AuthProvider = ({ children }) => {
+    const [auth, setAuth] = useLocalStorage('auth', initialAuthState);
 
-export const AuthProvider = ({
-    reducer,
-    initialState,
-    children,
-}) => {
-    
+    const loginUser = (accessToken, email, id) => {
+        setAuth({ accessToken, email, _id: id });
+    };
+
+    const logoutUser = () => {
+        setAuth(initialAuthState);
+    };
+
+    const isAuthenticated = !!auth?.accessToken;
+
     return (
-        <AuthContext.Provider value={useReducer(reducer, initialState)}>
+        <AuthContext.Provider
+            value={{ user: auth, isAuthenticated, loginUser, logoutUser, baseUrl }}>
             {children}
         </AuthContext.Provider>
-    )
-}
+    );
+};
 
-export const useAuthValue = () => useContext(AuthContext)
+export const useAuthContext = () => useContext(AuthContext);

@@ -1,22 +1,23 @@
 import "./Edit.css"
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom"
-import * as plantService from "../../service/plantsService"
+import { useLocation, useNavigate } from "react-router-dom"
+import { editPlant, getOneDetails, postPlant } from "../../service/plantsService";
 
 export const Edit = () => {
     const location = useLocation();
     const [data, setData] = useState([]);
+    const navigate = useNavigate()
 
     useEffect(() => {
-        plantService
-            .getOneDetails(location.pathname.split("/")[3])
+
+        getOneDetails(location.pathname.split("/")[3])
             .then((plant) => setData(plant))
     }, [])
 
     const submitHandler = (e) => {
         e.preventDefault();
-        let values = Object.fromEntries(new FormData(e.target))
-        console.log(values)
+        editPlant(Object.fromEntries(new FormData(e.target)), location.pathname.split("/")[3])
+            .then(navigate("/catalog"))
     }
 
 
@@ -28,13 +29,13 @@ export const Edit = () => {
 
                     <div className="edit-inputs-wrapper">
                         <label htmlFor="plant-name" className="edit-plant-label">Plant Name</label>
-                        <input className="plant-name general-input" type="any" name="plant-name" placeholder="Plant name" defaultValue={data.name} />
+                        <input className="plant-name general-input" type="any" name="name" placeholder="Plant name" defaultValue={data.name} />
                         <label htmlFor="plant-img" className="edit-plant-label">Plant Img</label>
-                        <input className="plant-img general-input" type="any" name="plant-img" placeholder="Plant Image" defaultValue={data.imageUrl} />
+                        <input className="plant-img general-input" type="any" name="imageUrl" placeholder="Plant Image" defaultValue={data.imageUrl} />
                         <label htmlFor="plant-price" className="edit-plant-label">Plant Price</label>
-                        <input className="plant-price general-input" type="any" name="plant-price" placeholder="Price" defaultValue={data.price} />
+                        <input className="plant-price general-input" type="any" name="price" placeholder="Price" defaultValue={data.price} />
                         <label htmlFor="plant-name" className="edit-plant-label">Plant Description</label>
-                        <textarea className="plant-description general-input" type="any" name="plant-description" placeholder="Description" defaultValue={data.description}></textarea>
+                        <textarea className="plant-description general-input" type="any" name="description" placeholder="Description" defaultValue={data.description}></textarea>
                         <button className="edit-btn" type="submit">Edit</button>
                     </div>
 

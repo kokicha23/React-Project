@@ -8,6 +8,7 @@ body {
     flex-direction: column;
     justify-content: center;
     background-image: url("./main-background.jpg");
+
     background-repeat: no-repeat;
     background-size: cover;
     align-items: center;
