@@ -3,7 +3,7 @@ import "./Header.css"
 import { Link } from "react-router-dom"
 import { logout } from "../../../service/authService"
 import { useLocalStorage } from "../../../hooks/useLocalStorage"
-import { initialAuthState } from "../../../context/reducer/authInitialState"
+import { initialAuthState } from "../../../context/authInitialState"
 import { useAuthContext } from "../../../context/authContext"
 
 export const Header = () => {

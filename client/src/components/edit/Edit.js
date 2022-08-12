@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom"
 import { editPlant, getOneDetails, postPlant } from "../../service/plantsService";
 
+const imgUrlRegex = /(https?:\/\/.*\.(?:png|jpg))/i;
+
 export const Edit = () => {
     const location = useLocation();
     const [data, setData] = useState([]);
@@ -24,8 +26,8 @@ export const Edit = () => {
         } = Object.fromEntries(new FormData(e.target))
 
 
-        if (!name || !imageUrl || !price || !description) { alert('All fields must be filled!'); return; };
-
+        if (!name || !imageUrl || !price || !description) { alert('All fields must be filled!'); return; }
+        if (!imgUrlRegex.test(imageUrl)) { alert("Image must a valid url!"); return; }
         editPlant(Object.fromEntries(new FormData(e.target)), location.pathname.split("/")[3])
             .then(navigate("/catalog"))
     }

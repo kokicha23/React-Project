@@ -1,6 +1,9 @@
 import "./Create.css"
 import { postPlant } from "../../service/plantsService"
 import { useNavigate } from "react-router-dom"
+
+const imgUrlRegex = /(https?:\/\/.*\.(?:png|jpg))/i;
+
 export const Create = () => {
 
     const navigate = useNavigate()
@@ -18,12 +21,13 @@ export const Create = () => {
 
 
         if (!name || !imageUrl || !price || !description) { alert('All fields must be filled!'); return; };
+        if (!imgUrlRegex.test(imageUrl)) { alert("Image must a valid url!"); return; }
+
         postPlant(Object.fromEntries(new FormData(e.target)))
             .then(navigate("/catalog"))
 
 
     }
-
     return (
         <div className="container-create">
             <div className="create-form-wrapper">

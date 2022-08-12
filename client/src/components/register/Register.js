@@ -4,8 +4,10 @@ import { Link, useNavigate } from "react-router-dom"
 import { useRef } from "react"
 import { register } from "../../service/authService"
 import { useLocalStorage } from "../../hooks/useLocalStorage"
-import { initialAuthState } from "../../context/reducer/authInitialState"
+import { initialAuthState } from "../../context/authInitialState"
 import { useAuthContext } from "../../context/authContext"
+
+const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
 export const Register = () => {
 
@@ -24,13 +26,14 @@ export const Register = () => {
       if (password !== repeatPassword) {
          alert('Passwords should match!'); return;
       }
+      if (!emailRegex.test(email)) { alert("Please enter a valid email."); return; }
+      if (password.length < 6) { alert("Password should be at least 6 characters"); return; }
+
       register(email, password)
          .then(authData => {
             loginUser(authData.accessToken, authData.email, authData._id)
             navigate('/')
          })
-
-
    }
 
    return (

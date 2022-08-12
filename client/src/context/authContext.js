@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
-import { initialAuthState } from './reducer/authInitialState';
+import { initialAuthState } from './authInitialState';
 
 const AuthContext = createContext();
 const baseUrl = 'http://localhost:3030/users';

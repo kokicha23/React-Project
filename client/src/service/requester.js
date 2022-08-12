@@ -1,4 +1,4 @@
-import { initialAuthState } from "../context/reducer/authInitialState"
+import { initialAuthState } from "../context/authInitialState"
 
 const request = async (method, url, data) => {
     const user = localStorage.getItem("auth")
@@ -32,7 +32,8 @@ const request = async (method, url, data) => {
             if (response.status === 403) {
                 localStorage.setItem("auth", JSON.stringify(initialAuthState))
             }
-            throw new Error(response.message)
+            const err = response.json();
+            throw new Error(err.message)
         }
         if (response.status === 204) {
             return response
@@ -40,6 +41,7 @@ const request = async (method, url, data) => {
         return await response.json();
 
     } catch (err) {
+        window.alert(err.message)
         throw err
     }
 

@@ -24,7 +24,7 @@ function App() {
       <div className="App">
         <header>
           <Header />
-          <Search />
+
         </header>
 
         <div className='main'>
