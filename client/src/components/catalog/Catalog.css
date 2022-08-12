@@ -2,3 +2,13 @@
     display: flex;
     flex-direction: row;
 }
+
+.no-items {
+    color: black;
+    font-weight: bold;
+    background-color: #96ed92;
+    border-radius: 60px;
+    height: 40px;
+    border: none;
+    padding: 5px 10px;
+}

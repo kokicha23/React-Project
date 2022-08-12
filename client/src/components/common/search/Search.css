@@ -23,18 +23,19 @@
     width: 100%;
 }
 
-.search-submit {
+/* .search-submit {
     background-color: #fff;
     border: none;
     border-radius: 7px;
     height: 30px;
     position: absolute;
     right: -18px;
-}
+} */
 
 .search-img {
     height: 20px;
-
+    position: absolute;
+    top: 5px;
+    left: 235px;
+    cursor: pointer;
 }
-
-.search-input input {}

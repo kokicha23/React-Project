@@ -15,6 +15,7 @@ import { AuthProvider } from './context/authContext';
 import { Details } from './components/details/Details';
 import { Edit } from './components/edit/Edit';
 import { Profile } from './components/profile/Profile';
+import { Page404 } from './components/404/404';
 
 function App() {
 
@@ -36,7 +37,10 @@ function App() {
             <Route path='/catalog' element={<Catalog />}></Route>
             <Route path='catalog/details/:id' element={<Details />}></Route>
             <Route path='catalog/edit/:id' element={<Edit />}></Route>
+            <Route path='profile/details/:id' element={<Details />}></Route>
+            <Route path='profile/edit/:id' element={<Edit />}></Route>
             <Route path='/profile' element={<Profile />}></Route>
+            <Route path='*' element={<Page404 />}></Route>
           </Routes>
         </div>
 
