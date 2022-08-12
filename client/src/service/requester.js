@@ -8,7 +8,6 @@ const request = async (method, url, data) => {
     }
     if (user) {
         const accessToken = JSON.parse(user).accessToken
-        console.log(user, accessToken)
         if (accessToken) {
             headers["X-Authorization"] = accessToken
         }

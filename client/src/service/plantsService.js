@@ -4,12 +4,7 @@ const baseUrl = "http://localhost:3030"
 
 export const getAll = async () => get(`${baseUrl}/data/plants`)
 
-
-export const getOneDetails = async (id) => {
-    const response = await fetch(`${baseUrl}/data/plants/${id}`);
-    const result = await response.json();
-    return result
-}
+export const getOneDetails = async (id) => get(`${baseUrl}/data/plants/${id}`)
 
 export const postPlant = async (body) => post(`${baseUrl}/data/plants`, body)
 
