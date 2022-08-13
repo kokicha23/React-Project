@@ -40,7 +40,7 @@ const request = async (method, url, data) => {
         return await response.json();
 
     } catch (err) {
-        window.alert(err.message)
+        window.alert("Not authorized")
         throw err
     }
 

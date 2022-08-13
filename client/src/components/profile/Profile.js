@@ -15,13 +15,17 @@ export const Profile = () => {
     }, [])
 
     return (
-        <div className="catalog-wrapper">
-            {preview.length > 0 ?
-                preview.map((x) => (
-                    <ProfileCard key={x._id} data={x} />
-                ))
-                : <p className="no-items">Sorry, there are no plants posted by you.</p>
-            }
-        </div>
+        <>
+            <p className="your-plants">Your plants:</p>
+            <div className="catalog-wrapper">
+
+                {preview.length > 0 ?
+                    preview.map((x) => (
+                        <ProfileCard key={x._id} data={x} />
+                    ))
+                    : <p className="no-items">Sorry, there are no plants posted by you.</p>
+                }
+            </div>
+        </>
     )
 }

@@ -8,6 +8,14 @@
     border-radius: 50px;
 }
 
+.plant-description {
+    height: 600px;
+    direction: ltr;
+    line-height: 1;
+    padding: 15px 15px 30px;
+    width: 80%;
+}
+
 .edit-plant-label {
     color: grey;
     margin-left: 15px;
@@ -40,7 +48,7 @@
     cursor: pointer;
     padding: 10px;
     margin-left: 33px;
-    margin-top: 5px;
+    margin-top: 34px;
     transition: opacity 0.1s;
 }
 

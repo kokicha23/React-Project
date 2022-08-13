@@ -23,7 +23,6 @@ export const Login = () => {
 
         if (!email || !password) { alert('All fields must be filled!'); return; };
         if (!emailRegex.test(email)) { alert("Please enter a valid email."); return; }
-        if (password.length < 6) { alert("Password should be at least 6 characters"); return; }
         login(email, password)
             .then(authData => {
                 loginUser(authData.accessToken, authData.email, authData._id)
