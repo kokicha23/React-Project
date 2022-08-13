@@ -3,7 +3,6 @@ import { useLocalStorage } from '../hooks/useLocalStorage';
 import { initialAuthState } from './authInitialState';
 
 const AuthContext = createContext();
-const baseUrl = 'http://localhost:3030/users';
 
 export const AuthProvider = ({ children }) => {
     const [auth, setAuth] = useLocalStorage('auth', initialAuthState);
@@ -20,7 +19,7 @@ export const AuthProvider = ({ children }) => {
 
     return (
         <AuthContext.Provider
-            value={{ user: auth, isAuthenticated, loginUser, logoutUser, baseUrl }}>
+            value={{ user: auth, isAuthenticated, loginUser, logoutUser}}>
             {children}
         </AuthContext.Provider>
     );
