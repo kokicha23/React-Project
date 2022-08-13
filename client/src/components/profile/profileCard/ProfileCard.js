@@ -13,7 +13,8 @@ export const ProfileCard = ({ data }) => {
 
 
             <div className="details-edit-buttons-wrapper">
-                {isAuthenticated && data._ownerId == user._id ? <button className="edit-details edit" type="button"><Link to={`edit/${data._id}`}>Edit</Link></button> : ""}
+                {isAuthenticated && data._ownerId == user._id ? <button className="edit-details edit" type="button">
+                    <Link to={`edit/${data._id}`}>Edit</Link></button> : ""}
 
                 <button className="edit-details details" type="button"><Link to={`details/${data._id}`}>Details</Link></button>
             </div>

@@ -11,7 +11,6 @@ export const Edit = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-
         getOneDetails(location.pathname.split("/")[3])
             .then((plant) => setData(plant))
     }, [])

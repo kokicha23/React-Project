@@ -28,10 +28,6 @@ const request = async (method, url, data) => {
 
         const response = await buildRequest;
         if (!response.ok) {
-            if (response.status === 403) {
-                localStorage.setItem("auth", JSON.stringify(initialAuthState))
-            }
-
             const err = await response.json();
             throw new Error(err.message)
         }

@@ -15,11 +15,11 @@ export const AuthProvider = ({ children }) => {
         setAuth(initialAuthState);
     };
 
-    const isAuthenticated = !!auth?.accessToken;
+    const isAuthenticated = Boolean(auth?.accessToken);
 
     return (
         <AuthContext.Provider
-            value={{ user: auth, isAuthenticated, loginUser, logoutUser}}>
+            value={{ user: auth, isAuthenticated, loginUser, logoutUser }}>
             {children}
         </AuthContext.Provider>
     );

@@ -26,7 +26,6 @@ export const Login = () => {
         login(email, password)
             .then(authData => {
                 loginUser(authData.accessToken, authData.email, authData._id)
-
                 navigate('/')
             })
 
