@@ -31,7 +31,8 @@ const request = async (method, url, data) => {
             if (response.status === 403) {
                 localStorage.setItem("auth", JSON.stringify(initialAuthState))
             }
-            const err = response.json();
+
+            const err = await response.json();
             throw new Error(err.message)
         }
         if (response.status === 204) {
@@ -40,7 +41,7 @@ const request = async (method, url, data) => {
         return await response.json();
 
     } catch (err) {
-        window.alert("Not authorized")
+        window.alert(err.message)
         throw err
     }
 
